@@ -1,0 +1,40 @@
+{
+  "name": "truco",
+  "version": "1.0.0",
+  "description": "Quiero re truco",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --reporter spec",
+    "start": "NODE_ENV=development nodemon ./bin/www"
+  },
+  "author": "me",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.2.0"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "connect-flash": "~0.1.1",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "^4.13.4",
+    "express-generator": "^4.13.1",
+    "express-session": "~1.14.1",
+    "jade": "~1.11.0",
+    "javascript-state-machine": "^2.3.5",
+    "lodash": "^4.6.1",
+    "mocha": "^3.1.2",
+    "mongoose": "^4.5.0",
+    "moniker": "^0.1.2",
+    "morgan": "~1.6.1",
+    "nodemon": "~1.10.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "passport.socketio": "^3.6.2",
+    "plato": "~1.7.0",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.5.1"
+  }
+}

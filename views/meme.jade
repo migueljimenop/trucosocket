@@ -1,0 +1,20 @@
+extends layout
+block content
+	body.bkimgmeme
+	div(class="remove-float center-block text-center")
+		.login-card.effect7
+			img(src='/images/travolta.gif' style="position:absolute; bottom:0px; right:0px; width: 300px; height: auto;") 	
+			h1 Inciar sesión
+			hr
+			form(role='form', action="/login",method="post", style='max-width: 300px;')
+				.form-group
+					label(for="username") Usuario		
+					input.form-control(type='text', name="username", placeholder='Usuario')
+				.form-group
+					label(for="password") Contraseña	
+					input.form-control(type='password', name="password", placeholder='Contraseña')
+				hr
+				button.btn.btn-primary(type='submit' class="right-space left-space") Iniciar sesión
+				| 
+				a(href='/')
+				button.btn.btn-default(type="button") Atrás

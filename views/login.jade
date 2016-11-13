@@ -1,0 +1,24 @@
+extends layout
+block content
+	div(class="remove-float center-block text-center")
+		.login-card.effect7
+			h1 Inciar sesión
+			hr
+			form(role='form', action="/login",method="post", style='max-width: 300px;')
+				.form-group
+					label(for="username") Usuario		
+					input.form-control(type='text', name="username", placeholder='Usuario')
+				.form-group
+					label(for="password") Contraseña	
+					input.form-control(type='password', name="password", placeholder='Contraseña')
+				button.btn.btn-primary(type='submit' class="right-space left-space") Iniciar sesión
+				a(href='/')
+					button.btn.btn-default(type="button") Atrás
+			hr
+			if (message)
+				h4(style='color:red;')= message
+				hr
+			.login-help
+				a(href='/register') No tengo cuenta
+				|  • 
+				a(href='/meme') Olvidé mi contraseña

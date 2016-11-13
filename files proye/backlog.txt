@@ -1,0 +1,68 @@
+Program Backlog 
+
+Ejemplo:
+COMO <rol> QUIERO <objetivo> PARA <veririca>
+
+Backlog Truco: 
+
+MIGUEL:
+- Como jugador quiero reiniciar una partida que estoy jugando.
+
+- Como jugador quiero cancelar/abandonar una partida en cualquier momento.
+
+- Como jugador quiero acumular mi puntaje total y el de cada juego siempre.
+
+- Como jugador quiero disponer de un contador de puntos del juego.
+
+- Como jugador quiero ver un ranking de todos los jugadores.
+
+- Como desarrollador quiero dar de alta a solo un jugador a traves de su correo.
+
+- Como desarrollador quiero controlar que no se cante envido después de la primera.
+
+- 
+
+PABLO:
+- Como jugador quiero poder jugar con flor.
+
+- Como jugador quiero poder cantar evido para la primera ronda.
+
+- Como jugador quiero poder cantar real envido para la primera ronda.
+
+- Como jugador quiero poder cantar falta envido para la primera ronda.
+
+- Como jugador quiero poder cantar truco/ re truco/ vale 4.
+
+- Como jugador quiero poder repartir las cartas al inicio de la ronda.
+
+- ...
+
+SANTI:
+- Como jugador quiero poder cantar envido. 
+
+- Como jugador quiero poder tener la posibilidad de cantar truco a las pardas para potencialmente (en base al valor de mis cartas) ganar la partida actual.
+
+- Como jugador quiero que se cumplan las leyes generales de jugabilidad para no tener que lidiar con la aplicacion.
+
+- Como jugador quiero que esten las posibilidades de cantar truco en todas las manos.
+
+- Como jugador quiero poder tener la posibilidad de querer (o no) mostrar las cartas si me voy.
+
+- Como jugador quiero que tambien me cante envido/truco (y me redoble las jugadas) para que el juego se haga mas dinamico.
+
+- Como jugador quiero que los puntos se muestren SIEMPRE al final de cada mano(ya sea los propios o los de mi adversario).
+
+- Como desarrollador quiero que el juego pueda mentir para asustar o potencialmente ganar los puntos/partida.
+
+- Como desarrollador quiero poder darle al jugador la posibilidad de abandonar la partida.
+
+- Como desarrollador quiero que ,al finalizar la partida, se muestre quien gano y quien perdio (con sus respectivos puntos).
+
+- Como desarrollador quiero solo habilitar el poder cantar envido en la primera ronda.
+
+- Como desarrollador quiero poder limitar en tiempo las jugadas de los usuarios para hacer mas agil el juego.
+
+- Como desarrollador quiero hacer estadisticas del jugador (en base a la cantidad de partidas jugadas y resultados) para ofrecerle al usuario un grafico de ello.
+
+- ...
+

@@ -1,0 +1,24 @@
+extends layout
+block content
+	.play-card.effect7
+		div(class="remove-float center-block text-center")
+			if (user)
+				h1 Hola #{user.username}
+				hr
+				a(href='/newgame')
+					button.btn.btn-primary(type="button") Crear juego
+				| 		
+				a(href="/logout")
+					button.btn.btn-danger(type="button") Cerrar sesión
+				| 
+				a(href="/lobby")
+					button.btn.btn-default(type="button") Atrás		
+			if (!user)		
+				h1 No has iniciado sesión
+				hr
+				a(href='/login')
+					button.btn.btn-primary(type="button") Tengo cuenta
+				| 						
+				a(href='/register')
+					button.btn.btn-primary(type="button") No tengo cuenta
+		br

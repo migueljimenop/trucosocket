@@ -1,0 +1,63 @@
+PROPUESTAS DE CLASE (QUEDARSE POR AHORA UNICAMENTE CON LAS HISTORIAS QUE HABLEN DIRECTAMENTE DEL JUEGO)
+
++ Como invitado quiero registrarme en el sitio
+
++ Como invitado quiero jugar
+
++ Como jugador quiero poder iniciar una partida
+
++ Como jugador que comienza una partida quiero poder repartir las cartas
+
++ Como jugador que tiene el turno quiero cantar envido.
+
++ Como jugador en el comienzo de una ronda quiero tener 3 cartas al azar del mazo.
+
++ Como jugador que tiene el turno quiero poder jugar una carta.
+
+
+-------------------------------------------------------------------------------------------------------------------------
+PROPUESTAS GRUPALES (seleccionar aquellas que estan relacionadas directamente con la jugabilidad)
+
+- Como jugador quiero reiniciar/cancelar/abandonar una partida en cualquier momento asumiendo el costo que lo acompaña.
+
+- Como jugador quiero acumular mi puntaje total y el de cada juego siempre.
+
+- Como jugador quiero disponer de un contador de puntos del juego.
+
+- Como jugador quiero poder jugar con flor.
+
+- Como jugador quiero poder cantar evido/real envido/falta envido para la primera ronda.
+
+- Como jugador quiero poder tener la posibilidad de cantar truco a las pardas para potencialmente (en base al valor de mis cartas) ganar la partida actual.
+
+- Como jugador quiero que esten las posibilidades de cantar truco en todas las manos.
+
+- Como jugador quiero poder tener la posibilidad de querer (o no) mostrar las cartas si me voy (a excepcion si se canto envido en la primer mano).
+
+- Como jugador quiero que tambien me cante envido/truco (y me redoble las jugadas) para que el juego se haga mas dinamico.
+
+- Como jugador quiero eliminar/reestablecer mi perfil
+
+- Como desarrollador quiero dar de alta/baja a solo un jugador a traves de su correo.
+
+- Como desarrollador quiero que el juego pueda mentir para asustar o potencialmente ganar los puntos/partida.
+
+- Como desarrollador quiero que ,al finalizar la partida, se muestre quien gano y quien perdio (con sus respectivos puntos).
+
+- Como desarrollador quiero poder limitar en tiempo las jugadas de los usuarios para hacer mas agil el juego.
+
+- Como desarrollador quiero hacer estadisticas del jugador (en base a la cantidad de partidas jugadas y resultados) para ofrecerle al usuario un grafico de ello.
+
+- Como desarrollador quiero listar la cantidad/informacion de jugadores/datos en el sistema.
+
+- Como desarrollador quiero que sea el mejor juego del mundo y mas descargado 100% REAL NO FAKE 1 LINK DIRECT DOWNLOAD TARINGA
+
+- Como desarrollador quiero controlar que el juego tenga como maximo tres rondas
+
+- Como desarrollador quiero controlar los puntos de cada juego por ronda (Ejemplo, que el real envido sea de tres puntos, etc.)
+
+- Como desarrollador quiero controlar que si existe empate gane la mano de ese turno.
+
+- Como desarrollador quiero chequear las cartas según su valor.
+
+- Como desarrollador quiero que exista un en e juego un tablero con un mazo de cartas, por cada ronda.

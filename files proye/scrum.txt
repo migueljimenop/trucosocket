@@ -1,0 +1,18 @@
+Estructura de la lista de funcionalidades
+(historia de usuario o casos de uso)
+-----------------------------------------
+COMO <rol> QUIERO <objetivo> PARA <verifica>
+Ejemplo:
+
+Como cliente, quiero que la pagina esté disponible 99% de las veces que quiera acceder.
+Como cliente, quiero ejecutar la pagina web en distintos navegadores sin problemas.
+
+Como vendedor, quiero agregar/eliminar/consultar sin problemas en el programa las veces que entre.
+
+Unos ejemplos:
+http://www.pmoinformatica.com/2012/10/plantillas-scrum-historias-de-usuario.html
+
+-----------------------------------------
+Para mas informacion:
+proyectosagiles.org
+

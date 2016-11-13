@@ -1,0 +1,105 @@
+extends layout
+block content
+	div(class="playlobby-card remove-float center-block text-center")
+		.play-card.effect7
+			| 
+			div(class="remove-float center-block text-center")
+				h2#lobbytitle En el lobby
+				h2(id="points" style="display: none")
+				h2#notify
+				a(href='/lobby')
+					button.btn.btn-success.btn-xs(type="button") Atrás
+				| 
+				a(href='/myacc')
+					button.btn.btn-info.btn-xs(type="button") Perfil
+				| 
+				a(href="/logout")
+					button.btn.btn-danger.btn-xs(type="button") Cerrar sesión
+			br
+		div(class="play-card effect7 remove-float center-block text-center")
+			div(class="winner" style="display: none")
+				h2#win
+			div(class="loser" style="display: none")
+				h2#lose
+			div(class="playGround" style="display: none")
+				br
+				h5 Cartas de mi oponente
+				table(style= "width :100%")
+					tr
+						td#c1op
+						td#c2op
+						td#c3op
+				br
+				| 
+				h5 Cartas jugadas
+				table(style= "width :100%")
+					tr
+						td#c1j
+						td#c2j
+						td#c3j
+				br
+				//p#misTR
+				br
+				h5 Mis Cartas
+				| 
+				p#ep
+				table(style="width :100% ")
+					tr
+						td#carta1.carta1class
+						td#carta2.carta2class
+						td#carta3.carta3class
+					br
+				hr 
+				div(class="muestraTurno" style="display: none")
+					h4#turnoCurrent
+				| 
+				div(class="buttonGround" style="display: none")
+					| 
+					button.btn.btn-primary(type='submit' class="ac-pc" value='playcard'  style="display: none") Jugar carta
+					| 
+					button.btn.btn-primary(type='submit' class="ac-q" value='quiero' style="display: none") Quiero
+					| 
+					button.btn.btn-primary(type='submit' class="ac-nq" value='no-quiero' style="display: none") No quiero
+					| 
+					button.btn.btn-primary(type='submit' class="ac-e" value='envido'  style="display: none") Envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-t" value='truco'  style="display: none") Truco
+					| 
+					button.btn.btn-primary(type='submit' class="ac-rt" value='retruco'  style="display: none") Retruco
+					| 
+					button.btn.btn-primary(type='submit' class="ac-vc" value='valecuatro'  style="display: none") Vale cuatro
+					| 
+					button.btn.btn-primary(type='submit' class="ac-ee" value='envido-envido'  style="display: none") Envido envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-re" value='real-envido'  style="display: none") Real envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-er" value='envido-real'  style="display: none") eReal envido
+					| 
+					button.btn.btn-primary(type='submit' class='ac-eer' value='envido-envido-real'  style="display: none") eeReal envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-eef" value='envido-envido-falta'  style="display: none") eeFalta envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-erf" value='envido-real-falta'  style="display: none") erFalta envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-eerf" value='envido-envido-real-falta'  style="display: none") eerFalta envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-rf" value='real-envido-falta'  style="display: none") rFalta envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-ef" value='envido-falta'  style="display: none") eFalta envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-fe" value='falta-envido'  style="display: none") Falta envido
+					| 
+					button.btn.btn-primary(type='submit' class="ac-m" value='mazo'  style="display: none") Mazo
+					| 
+					button.jugar.btn.btn-danger(type='submit' name='value') Jugar
+				hr 
+				h4#actionOpo
+				br
+		div(id="uc" class="play-card effect7 remove-float center-block text-center")
+			h5 Usuarios conectados: 
+				span#lobby-count 0
+			ul(style="padding-left: 0px;" id="lobby-list")
+	img(id="travolta" src='/images/travolta.gif' style="display: none; bottom:0px; position: absolute; right: 450px;" class="remove-float center-block text-center" )
+	img(id="party" src='/images/party.gif' style="display: none; bottom:-12px; position: absolute; right: 450px;" class="remove-float center-block text-center" )
+	script(src='/javascripts/client.js', type='text/javascript')
+	script(src='https://code.jquery.com/jquery-1.10.2.js')
