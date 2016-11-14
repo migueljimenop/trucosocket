@@ -4,7 +4,7 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect("mongodb://localhost/truco");
+//mongoose.connect("mongodb://localhost/truco");
 // var db = mongoose.createConnection(config.db[process.env.NODE_ENV]);
 var password_validation = {
 	validator: function(p){

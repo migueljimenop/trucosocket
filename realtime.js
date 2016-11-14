@@ -23,7 +23,8 @@ module.exports = function(server){
 		cookieParser: require('cookie-parser'), //optional your cookie-parser middleware function. Defaults to require('cookie-parser')
 		key:          'express.sid',       //make sure is the same as in your session settings in app.js
 		secret:       'keyboard cat',      //make sure is the same as in your session settings in app.js
-		store:      new MongoStore ({ mongooseConnection: mongoose.connection }),     
+		store:      new MongoStore ({ mongooseConnection: mongoose.connection,
+		url: 'mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development' }),     
 		success:      onAuthorizeSuccess,  // *optional* callback on success
 		fail:         onAuthorizeFail,     // *optional* callback on fail/error
 	}));
@@ -308,8 +309,9 @@ module.exports = function(server){
 						miscore = resultado.score[0];
 						oposcore = resultado.score[1];
 
-						ienvidoPoints = resultado.player1.envidoPoints
+						ienvidoPoints = resultado.player1.envidoPoints;
 						opoenvidoPoints = resultado.player2.envidoPoints;
+						
 						if(miscore >= 3){
 							io.to(miid).emit("winner", jugador);
 							io.to(idopo).emit("loser", oponente);
@@ -333,11 +335,13 @@ module.exports = function(server){
 						oposcore = resultado.score[0];
 						ienvidoPoints = resultado.player1.envidoPoints;
 						opoenvidoPoints = resultado.player2.envidoPoints;							
+						
+
 						if(miscore >= 3){
 							io.to(miid).emit("winner", jugador)
 							io.to(idopo).emit("loser", oponente);
-							io.to(miid).emit("getPoints", miscore,oposcore, jugador,oponente, ienvidoPoints, winner);
-							io.to(idopo).emit("getPoints", oposcore,miscore, oponente,jugador, opoenvidoPoints, winner);
+							io.to(idopo).emit("getPoints", miscore,oposcore, jugador,oponente, opoenvidoPoints, winner);
+							io.to(miid).emit("getPoints", oposcore,miscore, oponente,jugador, ienvidoPoints, winner);
 							checkwinner = true;	
 						}
 					}

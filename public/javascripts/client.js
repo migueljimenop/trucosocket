@@ -287,8 +287,7 @@ var historial=[];
 		points.html(namep1 + ": "+ score1 +" - "+ namep2 +": " + score2);
 		points.show("fast");
 		ep.html("Puntos de envido " + envp);
-		ep.show("fast");
-
+		ep.show("fast");	
 		if (w){
 			f_t = false;
 			f_rt =false;
@@ -296,12 +295,9 @@ var historial=[];
 			op_f_t = false;
 			op_f_rt =false;
 			op_f_v4 =false;
-
 			okplayCard= false;
 			actionOpo.html("");
-
 		}
-
 	});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 socket.on("winner", function(name){

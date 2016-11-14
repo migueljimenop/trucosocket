@@ -2,7 +2,7 @@
   "name": "truco",
   "version": "1.0.0",
   "description": "Quiero re truco",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "NODE_ENV=test mocha --reporter spec",
     "start": "NODE_ENV=development nodemon ./bin/www"
@@ -25,7 +25,7 @@
     "javascript-state-machine": "^2.3.5",
     "lodash": "^4.6.1",
     "mocha": "^3.1.2",
-    "mongoose": "^4.5.0",
+    "mongoose": "4.1.9",
     "moniker": "^0.1.2",
     "morgan": "~1.6.1",
     "nodemon": "~1.10.2",

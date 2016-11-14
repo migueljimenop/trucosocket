@@ -20,10 +20,12 @@ var users = require('./routes/users');
 
 app.use(session({
   key: 'express.sid',
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  store: new MongoStore({ mongooseConnection: mongoose.connection,
+  url: 'mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development' }),
   secret: 'keyboard cat',
   resave: true,
-  saveUninitialized: true     
+  saveUninitialized: true,
+
 }));
 
 app.use(function(req,res,next){ 
@@ -68,8 +70,14 @@ passport.deserializeUser(function(id, done) {
 
 // mongoose
 //mongoose.promise = global.promise;
-mongoose.connect('mongodb://localhost/truco-development');
+mongoose.connect('mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development');
 
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log('mongo connected!');
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
