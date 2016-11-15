@@ -23,7 +23,8 @@ module.exports = function(server){
 		cookieParser: require('cookie-parser'), //optional your cookie-parser middleware function. Defaults to require('cookie-parser')
 		key:          'express.sid',       //make sure is the same as in your session settings in app.js
 		secret:       'keyboard cat',      //make sure is the same as in your session settings in app.js
-		store:      new MongoStore ({ mongooseConnection: mongoose.connection }),     
+		store:      new MongoStore ({ mongooseConnection: mongoose.connection,
+		url: 'mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development' }),     
 		success:      onAuthorizeSuccess,  // *optional* callback on success
 		fail:         onAuthorizeFail,     // *optional* callback on fail/error
 	}));
