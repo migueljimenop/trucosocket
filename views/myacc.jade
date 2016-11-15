@@ -5,13 +5,13 @@ block content
 			if (user)
 				h1 Hola #{user.username}
 				hr
-				a(href='/newgame')
-					button.btn.btn-primary(type="button") Crear juego
+				a(href='/truco')
+					button.btn.btn-primary(type="button") Ir a un juego
 				| 		
 				a(href="/logout")
 					button.btn.btn-danger(type="button") Cerrar sesión
 				| 
-				a(href="/lobby")
+				a(href="/truco")
 					button.btn.btn-default(type="button") Atrás		
 			if (!user)		
 				h1 No has iniciado sesión

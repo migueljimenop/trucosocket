@@ -193,6 +193,10 @@ nav li a:hover{
 
 .index-card {
   padding: 40px;
+  padding-bottom: 0px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
   width: 359.5px;
   background-color: #F7F7F7;
   margin: 120px auto 10px;
@@ -408,6 +412,18 @@ nav li a:hover{
 }
 
 .play-card {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-right: 30px;
+  padding-left: 30px;
+  width: 900px;
+  background-color: #F7F7F7;
+  margin: 10px auto 10px;
+  border-radius: 2px 2px;
+  overflow: hidden;
+}
+
+.tittle-card {
   padding-top: 0px;
   padding-bottom: 0px;
   padding-right: 30px;

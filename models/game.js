@@ -32,11 +32,11 @@ var Game = mongoose.model('Game', GameSchema);
  */
 
 Game.prototype.play = function(player, action, value){	
-	
+	/*
 	if(value == '' && action == 'playcard')
-		throw new Error("[ERROR] INVALID PLAY...");
+		throw new Error("[ERROR] INVALID PLAY...");*/
 //
-
+/*
 console.log("=======en el modelo===========");
 console.log("el player en game es: "+player);
 console.log("el action en game es: "+action);
@@ -44,10 +44,10 @@ console.log("el value en game es: "+value);
 console.log("el ct en game es: "+this.currentRound.currentTurn);
 console.log("el auxwin en game es: "+this.currentRound.auxWin);
 //console.log("el this.currentRound en game es: "+JSON.stringify(this.currentRound));
-console.log("==========================");
+console.log("==========================");*/
 
 //	
-
+	
 	if(this.currentRound.currentTurn !== player  || (this.currentRound.currentTurn == player && this.currentRound.auxWin==true))   
 		throw new Error("[ERROR] INVALID TURN...");
 	
@@ -102,10 +102,10 @@ Game.prototype.setPoints = function(){
 
 Game.prototype.switchPlayer=function() {
 
-	  if(this.currentRound.player1==this.currentHand){
-          this.currentHand = this.currentRound.player2;
+	  if(this.currentRound.player1==this.currentTurn){
+          this.currentTurn = this.currentRound.player2;
         }else{
-          this.currentHand = this.currentRound.player1;
+          this.currentTurn = this.currentRound.player1;
         }
 };
 

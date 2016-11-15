@@ -1,61 +1,62 @@
 extends layout
 block content
-	div(class="playlobby-card remove-float center-block text-center")
-		.play-card.effect7
-			| 
+	div(class="playlobby-card")
+		.tittle-card.effect7
 			div(class="remove-float center-block text-center")
-				h2#lobbytitle En el lobby
-				h2(id="points" style="display: none")
+				table(style= "width :100%" )
+					tr
+						td(style="width: 100px;")
+							a(href='/truco')
+								button.btn.btn-success.btn-sm(type="button") Lobby
+						td(style="width: 100px;")
+							div(class="remove-float center-block text-center")
+								h2(class="remove-float center-block text-center")#lobbytitle Elije un oponente
+								h2(id="points" style="display: none" class="remove-float center-block text-center")
+						td(style="width: 100px;")
+							a(href="/logout")
+								button.btn.btn-danger.btn-sm(type="button") Cerrar sesión
 				h2#notify
-				a(href='/lobby')
-					button.btn.btn-success.btn-xs(type="button") Atrás
-				| 
-				a(href='/myacc')
-					button.btn.btn-info.btn-xs(type="button") Perfil
-				| 
-				a(href="/logout")
-					button.btn.btn-danger.btn-xs(type="button") Cerrar sesión
-			br
-		div(class="play-card effect7 remove-float center-block text-center")
-			div(class="winner" style="display: none")
+		div(class="play-card effect7 ")
+			div(class="winner remove-float center-block text-center" style="display: none")
 				h2#win
-			div(class="loser" style="display: none")
+			div(class="loser remove-float center-block text-center" style="display: none")
 				h2#lose
 			div(class="playGround" style="display: none")
-				br
-				h5 Cartas de mi oponente
-				table(style= "width :100%")
-					tr
-						td#c1op
-						td#c2op
-						td#c3op
-				br
-				| 
-				h5 Cartas jugadas
-				table(style= "width :100%")
-					tr
-						td#c1j
-						td#c2j
-						td#c3j
-				br
-				//p#misTR
-				br
-				h5 Mis Cartas
-				| 
-				p#ep
-				table(style="width :100% ")
-					tr
-						td#carta1.carta1class
-						td#carta2.carta2class
-						td#carta3.carta3class
-					br
-				hr 
-				div(class="muestraTurno" style="display: none")
+				h5(class="remove-float center-block text-center") Cartas de mi oponente
+				div(style="margin-left: 150px")
+					table(style= "width :100%")
+						tr
+							td#c1op
+							td#c2op
+							td#c3op
+				h5(class="remove-float center-block text-center") Cartas jugadas
+					| 
+				div(style="margin-left: 150px")
+					table(style= "width :100%")
+						tr
+							td#c1j
+							td#c2j
+							td#c3j
+					hr
+					table(style= "width :100%")
+						tr(class="remove-float text-center")
+							td
+								h5 Mis Cartas
+							td
+								h5#ep
+					| 
+				div(class="remove-float center-block text-center" style="padding-right: 30px")
+					table(style="width :100% ")
+						tr
+							td#carta1.carta1class
+							td#carta2.carta2class
+							td#carta3.carta3class
+				div(class="muestraTurno remove-float center-block text-center" style="display: none")
 					h4#turnoCurrent
 				| 
-				div(class="buttonGround" style="display: none")
+				div(class="buttonGround remove-float center-block text-center" style="display: none")
 					| 
-					button.btn.btn-primary(type='submit' class="ac-pc" value='playcard'  style="display: none") Jugar carta
+					h4(class="remove-float center-block text-center") Es tu turno
 					| 
 					button.btn.btn-primary(type='submit' class="ac-q" value='quiero' style="display: none") Quiero
 					| 
@@ -92,14 +93,15 @@ block content
 					button.btn.btn-primary(type='submit' class="ac-m" value='mazo'  style="display: none") Mazo
 					| 
 					button.jugar.btn.btn-danger(type='submit' name='value') Jugar
-				hr 
 				h4#actionOpo
 				br
 		div(id="uc" class="play-card effect7 remove-float center-block text-center")
-			h5 Usuarios conectados: 
+			h5(style="font-weight: bold") Usuarios conectados: 
 				span#lobby-count 0
 			ul(style="padding-left: 0px;" id="lobby-list")
 	img(id="travolta" src='/images/travolta.gif' style="display: none; bottom:0px; position: absolute; right: 450px;" class="remove-float center-block text-center" )
 	img(id="party" src='/images/party.gif' style="display: none; bottom:-12px; position: absolute; right: 450px;" class="remove-float center-block text-center" )
 	script(src='/javascripts/client.js', type='text/javascript')
 	script(src='https://code.jquery.com/jquery-1.10.2.js')
+	script.
+		window.onbeforeunload = confirm("Recuerda cerrar sesión antes de irte.");
