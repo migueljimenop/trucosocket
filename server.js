@@ -69,7 +69,7 @@ passport.deserializeUser(function(id, done) {
 
 // mongoose
 //mongoose.promise = global.promise;
-mongoose.connect('mongodb://localhost/truco-development');
+mongoose.connect('mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development');
 
 
 // catch 404 and forward to error handler
