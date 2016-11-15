@@ -9,6 +9,7 @@ $(document).ready(function(){
 	var notify = $("#notify");
 	var points = $("#points");
 	var lobbytitle = $("#lobbytitle");
+	var stats = $("#stats");
 //-----------------------------------------------------------------------------------------
 // Variables de manejo de ganadores y perdedores, con sus respectivos gifs.
 	var winner = $(".winner");
@@ -295,6 +296,9 @@ $(document).ready(function(){
 		}
 	});
 //-----------------------------------------------------------------------------------------
+// 
+
+//-----------------------------------------------------------------------------------------
 // Socket que se encarga de avisar al ganador y perdedor con sus respectivos gifs.
 	socket.on("winner", function(name){
 		if(!gif){
@@ -303,6 +307,7 @@ $(document).ready(function(){
 			winner.show("fast");
 			win.html("Has ganado " + name);
 			party.show("fast").css("display", "block");
+			socket.emit("statsUser", me.socket, name, true);
 		}	
 	});
 
@@ -312,8 +317,26 @@ $(document).ready(function(){
 			$( ".playGround" ).fadeOut("slow");
 			loser.show("fast");
 			lose.html("Has perdido " + name);	
-			travolta.show("fast").css("display", "block");		
+			travolta.show("fast").css("display", "block");
+			socket.emit("statsUser", me.socket, name, false);		
 		}	
+	});
+
+	socket.on("graphs", function(ganadas, perdidas){
+		var pieData = [
+		   {
+		      value: 15,
+		      label: 'Ganadas',
+		      color: '#2EFE2E'
+		   },
+		   {
+		      value: 30,
+		      label: 'Perdidas',
+		      color: '#FE2E2E'
+		   }
+		];
+		var context = document.getElementById(stats).getContext('2d');
+		var skillsChart = new Chart(context).Pie(pieData);
 	});
 
 //-----------------------------------------------------------------------------------------
@@ -355,7 +378,7 @@ $(document).ready(function(){
 			}
 			if (i == 2){ 
 				var c3 = "/images/"+otherTable[2].number + "-"+ otherTable[2].suit+".png";
-							c3op.html(' <input type="image" src='+c3+' style="width="67"; height="85";">');
+				c3op.html(' <input type="image" src='+c3+' style="width="67"; height="85";">');
 			}
 		}
 //-----------------------------------------------------------------------------------------
@@ -374,7 +397,7 @@ $(document).ready(function(){
 			}
 			if (i == 2){ 
 				var c3 = "/images/"+imTable[2].number + "-"+ imTable[2].suit+".png";
-							c3j.html(' <input type="image" src='+c3+' style="width="67"; height="85";">');
+				c3j.html(' <input type="image" src='+c3+' style="width="67"; height="85";">');
 			}
 		}
 	});

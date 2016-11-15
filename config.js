@@ -1,6 +1,6 @@
 module.exports = {
   db: {
-    development: 'mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development',
+    development: 'mongodb://localhost/truco-dev',
     test: 'mongodb://localhost/truco-test'
   }
 };

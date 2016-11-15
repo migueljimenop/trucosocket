@@ -6,6 +6,9 @@ block content
 				table(style= "width :100%" )
 					tr
 						td(style="width: 100px;")
+							a(href='/myacc')
+								button.btn.btn-success.btn-sm(type="button") Perfil
+							| 
 							a(href='/truco')
 								button.btn.btn-success.btn-sm(type="button") Lobby
 						td(style="width: 100px;")
@@ -103,5 +106,3 @@ block content
 	img(id="party" src='/images/party.gif' style="display: none; bottom:-12px; position: absolute; right: 450px;" class="remove-float center-block text-center" )
 	script(src='/javascripts/client.js', type='text/javascript')
 	script(src='https://code.jquery.com/jquery-1.10.2.js')
-	script.
-		window.onbeforeunload = confirm("Recuerda cerrar sesión antes de irte.");

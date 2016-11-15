@@ -17,8 +17,12 @@ var UserSchema = new Schema({
 		unique: true },
 	password: String,
 	playing: Boolean,
-	connected: Boolean
+	connected: Boolean,
+	gw: {type: Number, default:0},
+	gl: {type: Number, default:0}
 });
+
+var Usuario = mongoose.model("Usuario", UserSchema);
 
 var password_validation = {
 	validator: function(p){
@@ -41,3 +45,5 @@ UserSchema.methods.validPassword = function( pass ) {
 UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model('User', UserSchema);
+module.exports.usuario = Usuario;
+//module.exports.user = User;

@@ -20,8 +20,7 @@ var users = require('./routes/users');
 
 app.use(session({
   key: 'express.sid',
-  store: new MongoStore({ mongooseConnection: mongoose.connection,
-  url: 'mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development'}),  
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true     
@@ -69,7 +68,7 @@ passport.deserializeUser(function(id, done) {
 
 // mongoose
 //mongoose.promise = global.promise;
-mongoose.connect('mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development');
+mongoose.connect('mongodb://localhost/truco-development');
 
 
 // catch 404 and forward to error handler

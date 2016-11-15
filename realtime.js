@@ -7,7 +7,8 @@ module.exports = function(server){
 	var session = require("express-session");
 	var MongoStore = require('connect-mongo')(session);
 	var mongoose = require('mongoose'); 
-	var User = require('./models/user').user;
+	var User = require('./models/user');
+	var Usuario = require('./models/user').usuario;
 	var Game = require("./models/game").game;
 	var Player = require("./models/player").player;
 	var Round = require("./models/round").round;
@@ -22,8 +23,7 @@ module.exports = function(server){
 		cookieParser: require('cookie-parser'), //optional your cookie-parser middleware function. Defaults to require('cookie-parser')
 		key:          'express.sid',       //make sure is the same as in your session settings in app.js
 		secret:       'keyboard cat',      //make sure is the same as in your session settings in app.js
-		store:      new MongoStore ({ mongooseConnection: mongoose.connection,
-		url: 'mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development' }),     
+		store:      new MongoStore ({ mongooseConnection: mongoose.connection }),     
 		success:      onAuthorizeSuccess,  // *optional* callback on success
 		fail:         onAuthorizeFail,     // *optional* callback on fail/error
 	}));
@@ -48,7 +48,11 @@ module.exports = function(server){
 	io.on('connection', function(socket){ 
 		var user = {socket: socket.id, id: socket.request.user._id, username: socket.request.user.username,
 					playing: socket.request.user.playing}
+		
+		var userflag = new User({ username: socket.id });
+		
 		users[socket.id] = user;
+
 		socket.emit("welcome", user, users);
 		socket.emit("notify", "Bienvenido, " + user.username);
 		io.emit("user_joined", user);
@@ -60,6 +64,24 @@ module.exports = function(server){
 			} else {
 				socket.emit('notify', 'Jugador en otro juego.');
 			}
+		});
+		
+		socket.on('statsUser', function(id, name, bool){
+			console.log(name);
+			User.findOne( {username: name}, function(err,user){
+				console.log("ENTRÉ AL findOne:" +  user);
+				if(err){ console.log(err); }else{
+					console.log("ENTRÉ AL else:");
+					if(bool){
+						user.gw+=1;
+					}else{
+						user.gl+=1;
+					}
+					user.save(function(err,res){
+						io.to(id).emit("graphs", user.gw, user.gl);
+					});
+				}
+			});
 		});
 
 		//Si el oponente acepta la invitacion, se crea un nuevo juego.
@@ -414,11 +436,29 @@ module.exports = function(server){
 						if (game.usuario.socket == socket.id) {
 							io.to(game.invitado.socket).emit("game_crash", game.usuario.username);
 							io.to(game.invitado.socket).emit("winner", game.invitado.username);//Co
-							//users[game.invitado.socket].playing = false;
+							User.findOne( {username: game.usuario.username }, function(err,user){
+								console.log("ENTRÉ AL findOne:" +  user);
+								if(err){ console.log(err); }else{
+									console.log("ENTRÉ AL else:");
+									user.connected = false;
+									user.save(function(err,res){
+										console.log(JSON.stringify(res));
+									});
+								}
+							});
 						} else if (game.invitado.socket == socket.id) {
 							io.to(game.usuario.socket).emit("game_crash", game.invitado.username);
 							io.to(game.usuario.socket).emit("winner", game.usuario.username);
-							//users[game.usuario.socket].playing = false;
+							User.findOne( {username: game.invitado.username }, function(err,user){
+								console.log("ENTRÉ AL findOne:" +  user);
+								if(err){ console.log(err); }else{
+									console.log("ENTRÉ AL else:");
+									user.connected = false;
+									user.save(function(err,res){
+										console.log(JSON.stringify(res));
+									});
+								}
+							});
 						}
 						delete games[game];
 					}

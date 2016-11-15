@@ -12,13 +12,19 @@ block content
 					button.btn.btn-danger(type="button") Cerrar sesión
 				| 
 				a(href="/truco")
-					button.btn.btn-default(type="button") Atrás		
-			if (!user)		
+					button.btn.btn-default(type="button") Atrás
+			if (!user)
 				h1 No has iniciado sesión
 				hr
 				a(href='/login')
 					button.btn.btn-primary(type="button") Tengo cuenta
-				| 						
+				| 
 				a(href='/register')
 					button.btn.btn-primary(type="button") No tengo cuenta
 		br
+	.play-card.effect7
+		div(class="remove-float center-block text-center")
+			h1 Tus estadisticas
+			canvas(id='stats' width='600', height='400')			
+	script(src='/javascripts/stats.js', type='text/javascript')
+	script(src='https://code.jquery.com/jquery-1.10.2.js')
