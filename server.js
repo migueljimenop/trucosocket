@@ -21,7 +21,7 @@ var users = require('./routes/users');
 app.use(session({
   key: 'express.sid',
   store:      new MongoStore ({ mongooseConnection: mongoose.connection,
-  url: 'mongodb://migueljimeno:trucoteam@ds023054.mlab.com:23054/truco-development'}),   
+  url: 'mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development'}),   
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true     
