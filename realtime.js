@@ -66,7 +66,7 @@ module.exports = function(server){
 				socket.emit('notify', 'Jugador en otro juego.');
 			}
 		});
-		
+		/*
 		socket.on('statsUser', function(id, name, bool){
 			console.log(name);
 			User.findOne( {username: name}, function(err,user){
@@ -83,7 +83,7 @@ module.exports = function(server){
 					});
 				}
 			});
-		});
+		});*/
 
 		//Si el oponente acepta la invitacion, se crea un nuevo juego.
 		socket.on('accept_invite', function (player_id, game_id) {
@@ -438,9 +438,9 @@ module.exports = function(server){
 							io.to(game.invitado.socket).emit("game_crash", game.usuario.username);
 							io.to(game.invitado.socket).emit("winner", game.invitado.username);//Co
 							User.findOne( {username: game.usuario.username }, function(err,user){
-								console.log("ENTRÉ AL findOne:" +  user);
+								//console.log("ENTRÉ AL findOne:" +  user);
 								if(err){ console.log(err); }else{
-									console.log("ENTRÉ AL else:");
+									//console.log("ENTRÉ AL else:");
 									user.connected = false;
 									user.save(function(err,res){
 										console.log(JSON.stringify(res));
@@ -451,9 +451,9 @@ module.exports = function(server){
 							io.to(game.usuario.socket).emit("game_crash", game.invitado.username);
 							io.to(game.usuario.socket).emit("winner", game.usuario.username);
 							User.findOne( {username: game.invitado.username }, function(err,user){
-								console.log("ENTRÉ AL findOne:" +  user);
+								//console.log("ENTRÉ AL findOne:" +  user);
 								if(err){ console.log(err); }else{
-									console.log("ENTRÉ AL else:");
+									//console.log("ENTRÉ AL else:");
 									user.connected = false;
 									user.save(function(err,res){
 										console.log(JSON.stringify(res));

@@ -296,9 +296,6 @@ $(document).ready(function(){
 		}
 	});
 //-----------------------------------------------------------------------------------------
-// 
-
-//-----------------------------------------------------------------------------------------
 // Socket que se encarga de avisar al ganador y perdedor con sus respectivos gifs.
 	socket.on("winner", function(name){
 		if(!gif){
@@ -307,7 +304,7 @@ $(document).ready(function(){
 			winner.show("fast");
 			win.html("Has ganado " + name);
 			party.show("fast").css("display", "block");
-			socket.emit("statsUser", me.socket, name, true);
+			//socket.emit("statsUser", me.socket, name, true);
 		}	
 	});
 
@@ -318,10 +315,10 @@ $(document).ready(function(){
 			loser.show("fast");
 			lose.html("Has perdido " + name);	
 			travolta.show("fast").css("display", "block");
-			socket.emit("statsUser", me.socket, name, false);		
+			//socket.emit("statsUser", me.socket, name, false);		
 		}	
 	});
-
+	/*
 	socket.on("graphs", function(ganadas, perdidas){
 		var pieData = [
 		   {
@@ -338,7 +335,7 @@ $(document).ready(function(){
 		var context = document.getElementById(stats).getContext('2d');
 		var skillsChart = new Chart(context).Pie(pieData);
 	});
-
+	*/
 //-----------------------------------------------------------------------------------------
 // Socket encargado de enviar las cartas a la vista.
 	socket.on('sendCards', function(imCards, imTable, otherTable ){;
