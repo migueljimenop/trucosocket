@@ -66,25 +66,26 @@ module.exports = function(server){
 				socket.emit('notify', 'Jugador en otro juego.');
 			}
 		});
-		/*
+		
+		var userflag = new User({ username: socket.id });
+
 		socket.on('statsUser', function(id, name, bool){
-			console.log(name);
 			User.findOne( {username: name}, function(err,user){
-				console.log("ENTRÉ AL findOne:" +  user);
+				//console.log("ENTRÉ AL findOne:" +  user);
 				if(err){ console.log(err); }else{
-					console.log("ENTRÉ AL else:");
 					if(bool){
 						user.gw+=1;
 					}else{
 						user.gl+=1;
 					}
 					user.save(function(err,res){
+						//console.log("Ya guardé el stats de cada jugador");
 						io.to(id).emit("graphs", user.gw, user.gl);
+						//console.log("Ya hice el emit.");
 					});
 				}
 			});
-		});*/
-
+		}); 
 		//Si el oponente acepta la invitacion, se crea un nuevo juego.
 		socket.on('accept_invite', function (player_id, game_id) {
 			//player_id: id de socket correspondiente al jugador que realiza la invitacion.
@@ -443,7 +444,7 @@ module.exports = function(server){
 									//console.log("ENTRÉ AL else:");
 									user.connected = false;
 									user.save(function(err,res){
-										console.log(JSON.stringify(res));
+										//console.log(JSON.stringify(res));
 									});
 								}
 							});
@@ -456,7 +457,7 @@ module.exports = function(server){
 									//console.log("ENTRÉ AL else:");
 									user.connected = false;
 									user.save(function(err,res){
-										console.log(JSON.stringify(res));
+										//console.log(JSON.stringify(res));
 									});
 								}
 							});

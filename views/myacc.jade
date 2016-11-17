@@ -3,16 +3,16 @@ block content
 	.play-card.effect7
 		div(class="remove-float center-block text-center")
 			if (user)
-				h1 Hola #{user.username}
+				h2 Hola #{user.username}
 				hr
 				a(href='/truco')
-					button.btn.btn-primary(type="button") Ir a un juego
+					button.btn.btn-primary.btn-xs(type="button") Ir a un juego
 				| 		
 				a(href="/logout")
-					button.btn.btn-danger(type="button") Cerrar sesión
+					button.btn.btn-danger.btn-xs(type="button") Cerrar sesión
 				| 
 				a(href="/truco")
-					button.btn.btn-default(type="button") Atrás
+					button.btn.btn-default.btn-xs(type="button") Atrás
 			if (!user)
 				h1 No has iniciado sesión
 				hr
@@ -24,7 +24,34 @@ block content
 		br
 	.play-card.effect7
 		div(class="remove-float center-block text-center")
-			h1 Tus estadisticas
+			h2 Tus estadisticas
 			canvas(id='stats' width='600', height='400')			
-	script(src='/javascripts/stats.js', type='text/javascript')
+	//script(src='/javascripts/stats.js', type='text/javascript')
 	script(src='https://code.jquery.com/jquery-1.10.2.js')
+	script.
+		var ganadas = Number('#{user.gw}');
+		var perdidas = Number('#{user.gl}');
+		var pieData = [{
+			value: ganadas,
+			color: "#2EFE2E",
+			label: 'Has ganado',
+			labelColor: 'white',
+			labelFontSize: '40'
+		},
+		{
+			value: perdidas,
+			color: '#FE2E2E',
+			label: 'Has perdido',
+			labelColor: 'white',
+			LabelFontSize: '40'
+		}];
+		var myPie = new Chart(document.getElementById("stats").getContext("2d")).Pie(pieData, {
+			animation: true,
+			animationSteps: 100,
+			segmentShowStroke: true,
+			segmentStrokeColor: "#fff",
+			segmentStrokeWidth: 10,
+			animateRotate: true,
+			animateScale: false,
+			onAnimationComplete: null
+		});	
