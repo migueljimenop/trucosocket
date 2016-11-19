@@ -8,7 +8,8 @@ block content
 						td(style="width: 130px;")
 							a(href='/truco')
 								button.btn.btn-success.btn-sm(type="button") Lobby
-								a(href='/myacc')
+							| 
+							a(href='/myacc')
 								button.btn.btn-primary.btn-sm(type="button") Perfil
 						td(style="width: 440px;")
 							div(class="remove-float center-block text-center")
@@ -25,7 +26,7 @@ block content
 				h2#lose
 			div(class="playGround" style="display: none")
 				h5(class="remove-float center-block text-center") Cartas de mi oponente
-				div(style="margin-left: 150px")
+				div(style="margin-left: 95px")
 					table(style= "width :100%")
 						tr
 							td#c1op
@@ -33,7 +34,7 @@ block content
 							td#c3op
 				h5(class="remove-float center-block text-center") Cartas jugadas
 					| 
-				div(style="margin-left: 150px")
+				div(style="margin-left: 95px")
 					table(style= "width :100%")
 						tr
 							td#c1j
@@ -101,6 +102,9 @@ block content
 			h5(style="font-weight: bold") Usuarios conectados: 
 				span#lobby-count 0
 			ul(style="padding-left: 0px;" id="lobby-list")
+		div(id="cc" class="play-card effect7 remove-float center-block text-center")
+			h2 Chatea con todos
+			canvas(id='chat' width='600', height='200')
 	img(id="travolta" src='/images/travolta.gif' style="display: none; bottom:0px; position: absolute; right: 450px;" class="remove-float center-block text-center" )
 	img(id="party" src='/images/party.gif' style="display: none; bottom:-12px; position: absolute; right: 450px;" class="remove-float center-block text-center" )
 	script(src='/javascripts/client.js', type='text/javascript')

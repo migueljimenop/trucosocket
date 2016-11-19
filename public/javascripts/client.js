@@ -207,6 +207,7 @@ $(document).ready(function(){
 		sacc="none";
 		$("body").css("background-image", "url(/images/fondoplay.jpg)").show("fast");
 		$("#uc").fadeOut("fast");
+		$("#cc").fadeOut("fast");
 		lobbytitle.html("");
 		transitions = [];
 		for(var i in tr){
@@ -341,7 +342,7 @@ $(document).ready(function(){
 				}
 				if (i == 2){ 
 					var c3 = "/images/"+cartas[2].number + "-"+ cartas[2].suit+".png";
-								carta3.html(' <input type="image" src='+c3+' style="width="128", height="165">');
+					carta3.html(' <input type="image" src='+c3+' style="width="128", height="165">');
 				}
 		}
 		misCartas.html(cartas);
@@ -366,9 +367,9 @@ $(document).ready(function(){
 		}
 //-----------------------------------------------------------------------------------------
 // Mesa del jugador actual.
-		c1j.html("");
-		c2j.html("");
-		c3j.html("");
+		c1j.html(' <input type="image" src="/images/MAMC.png" style="width="67"; height="85";">');
+		c2j.html(' <input type="image" src="/images/MAMC.png" style="width="67"; height="85";">');
+		c3j.html(' <input type="image" src="/images/MAMC.png" style="width="67"; height="85";">');
 		for(var i in imTable){
 			if (i == 0){ 
 				var c1 = "/images/"+imTable[0].number + "-"+ imTable[0].suit+".png";
@@ -417,10 +418,10 @@ $(document).ready(function(){
 	});
 //-----------------------------------------------------------------------------------------	
 // Al conectar un usuario, agrega uno más a la cuenta y la lista.
-	socket.on('user_joined', function(user) {
+	socket.on('user_joined', function(user, total, win) {
 		if (user.socket != socket.id) {
 			lobbyCount.text(Number(lobbyCount.text()) + 1);
-			lobbyList.append(userEntry(user));
+			lobbyList.append(userEntry(user, total, win));
 		}
 	});
 //-----------------------------------------------------------------------------------------
@@ -457,10 +458,12 @@ $(document).ready(function(){
 	});
 //-----------------------------------------------------------------------------------------
 // Función encargada de la conexión de usuarios y vista la lista.
-	function userEntry(user) {
+	function userEntry(user, total, win) {
+		win = 0;
+		total = 0;
 		if(me.socket != user.socket){
 			var link = (user.socket != socket.id) ? '<button class="invite-link btn btn-primary btn-xs">Invitar</button> ' : '';
-			return '<li style="list-style-type: none;" id="'+user.socket+'" , name="'+user.socket+'">'+link+user.username+'</li><p></p>';            
+			return '<li style="list-style-type: none;" id="'+user.socket+'" , name="'+user.socket+'">'+link+user.username+ ' ' + win +'/'+ total + '</li><p></p>';            
 		}else{
 			return '';
 		}
