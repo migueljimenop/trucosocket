@@ -10,32 +10,33 @@
   "author": "me",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^3.2.0"
+    "chai": "^4.3.4"
   },
   "dependencies": {
-    "body-parser": "~1.13.2",
+    "body-parser": "^1.19.0",
     "chart.js": "^2.4.0",
     "connect-flash": "~0.1.1",
-    "connect-mongo": "^1.3.2",
-    "cookie-parser": "~1.3.5",
-    "debug": "~2.2.0",
+    "connect-mongo": "^4.4.0",
+    "cookie-parser": "^1.4.5",
+    "debug": "^4.3.1",
     "express": "^4.13.4",
     "express-generator": "^4.13.1",
-    "express-session": "~1.14.1",
+    "express-session": "^1.17.1",
     "jade": "~1.11.0",
-    "javascript-state-machine": "^2.3.5",
+    "javascript-state-machine": "^3.1.0",
     "lodash": "^4.6.1",
-    "mocha": "^3.1.2",
-    "mongoose": "^4.5.0",
+    "mocha": "^8.3.2",
+    "mongoose": "^5.12.1",
     "moniker": "^0.1.2",
-    "morgan": "~1.6.1",
-    "nodemon": "~1.10.2",
-    "passport": "^0.3.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.0.0",
+    "passport-local-mongoose": "^6.1.0",
     "passport.socketio": "^3.6.2",
     "plato": "~1.7.0",
-    "serve-favicon": "~2.3.0",
-    "socket.io": "^1.5.1"
+    "serve": "^11.3.2",
+    "serve-favicon": "^2.5.0",
+    "socket.io": "^4.0.0"
   }
 }
