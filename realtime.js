@@ -5,7 +5,7 @@ module.exports = function(server){
 	var app = require('./server');
 	var passportSocketIo = require("passport.socketio");
 	var session = require("express-session");
-	var MongoStore = require('connect-mongo')(session);
+	var MongoStore = require('connect-mongo');
 	var mongoose = require('mongoose'); 
 	var User = require('./models/user');
 	var Usuario = require('./models/user').usuario;
@@ -23,8 +23,11 @@ module.exports = function(server){
 		cookieParser: require('cookie-parser'), //optional your cookie-parser middleware function. Defaults to require('cookie-parser')
 		key:          'express.sid',       //make sure is the same as in your session settings in app.js
 		secret:       'keyboard cat',      //make sure is the same as in your session settings in app.js
-		store:      new MongoStore ({ mongooseConnection: mongoose.connection,
-		url: 'mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development' }),     
+		//store:      new MongoStore ({ mongooseConnection: mongoose.connection,
+		//url: 'mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development' }),     
+		store: MongoStore.create({mongoUrl: 'mongodb+srv://miguel:1234@truco-development.kcfpd.mongodb.net/truco-development?retryWrites=true&w=majority', 
+		useNewUrlParser: true,
+		useUnifiedTopology: true }),
 		success:      onAuthorizeSuccess,  // *optional* callback on success
 		fail:         onAuthorizeFail,     // *optional* callback on fail/error
 	}));

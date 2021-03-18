@@ -11,7 +11,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var flash = require('connect-flash');
 var LocalStrategy = require('passport-local').Strategy;
-var MongoStore = require('connect-mongo')(session);
+var MongoStore = require('connect-mongo');
 var app = express();
 
 
@@ -20,8 +20,11 @@ var users = require('./routes/users');
 
 app.use(session({
   key: 'express.sid',
-  store:      new MongoStore ({ mongooseConnection: mongoose.connection,
-  url: 'mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development'}),   
+  store: MongoStore.create({mongoUrl: 'mongodb+srv://miguel:1234@truco-development.kcfpd.mongodb.net/truco-development?retryWrites=true&w=majority',
+    useNewUrlParser: true,
+    useUnifiedTopology: true }),
+  //store:      new MongoStore ({ mongooseConnection: mongoose.connection,
+  //url: 'mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development'}),   
   secret: 'keyboard cat',
   resave: true,
   saveUninitialized: true     
@@ -69,7 +72,9 @@ passport.deserializeUser(function(id, done) {
 
 // mongoose
 //mongoose.promise = global.promise;
-mongoose.connect('mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development');
+//mongoose.connect('mongodb://miguel:1234@ds023054.mlab.com:23054/truco-development');
+
+mongoose.connect('mongodb+srv://miguel:1234@truco-development.kcfpd.mongodb.net/truco-development?retryWrites=true&w=majority');
 
 
 // catch 404 and forward to error handler

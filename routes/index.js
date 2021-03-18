@@ -7,7 +7,7 @@ var Game = require("../models/game").game;
 var Player = require("../models/player").player;
 var Round = require("../models/round").round;
 var Card = require("../models/card").card;
-var StateMachine = require("../node_modules/javascript-state-machine/state-machine.js");
+var StateMachine = require("../node_modules/javascript-state-machine/dist/state-machine.js");
 
 /* GET home page. */
 router.get('/', function (req, res) {

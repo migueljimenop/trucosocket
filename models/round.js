@@ -1,5 +1,5 @@
 var _ = require('lodash');
-var StateMachine = require("../node_modules/javascript-state-machine/state-machine.js");
+var StateMachine = require("../node_modules/javascript-state-machine/dist/state-machine.js");
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var deckModel = require("./deck");
@@ -32,7 +32,8 @@ var posiblesT=[{'t':"truco"},{'t':"retruco"},{'t':"valecuatro"}];
 Round.prototype.newTrucoFSM=function(estadoInic){
 	var initialState = estadoInic || 'init'; 
 
-		var fsm = StateMachine.create({
+		//var fsm = StateMachine.create({
+		var fsm = new StateMachine({
 		initial: initialState,
 		events: [
 
