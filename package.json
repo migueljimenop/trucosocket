@@ -19,7 +19,7 @@
     "connect-mongo": "^4.4.0",
     "cookie-parser": "^1.4.5",
     "debug": "^4.3.1",
-    "express": "^4.13.4",
+    "express": "^4.17.3",
     "express-generator": "^4.13.1",
     "express-session": "^1.17.1",
     "jade": "~1.11.0",
